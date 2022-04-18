@@ -13,7 +13,7 @@ class CreateSpecificationController {
 
         await createSpecificationUseCase.execute({ name, description });
 
-        return response.send();
+        return response.status(201).send();
     }
 }
 
