@@ -4,11 +4,10 @@ import { container } from "tsyringe";
 import { UpdateUserAvatarUseCase } from "./UpdateAvaterUseCase";
 
 class UpdateUserAvatarController {
-    async handle(request: Request, response: Response) {
+    async handle(request: Request, response: Response): Promise<Response> {
         const { id } = request.user;
 
-        // Receper arquivo
-        const avatar_file = null;
+        const avatar_file = request.file.filename;
 
         const updateUserAvatarUseCase = container.resolve(
             UpdateUserAvatarUseCase
